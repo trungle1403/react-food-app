@@ -1,0 +1,34 @@
+.category {
+    padding: 50px 0;
+    
+    &-main {
+        padding: 50px 20px;
+    }
+    &-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px; 
+        flex-wrap: wrap;
+    }
+    &-slide {
+        padding: 20px;
+        text-align: center;
+        transition: .3s ease;
+        img {
+            width: 60px;
+            height: 60px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+    }
+    
+    &-slide:hover &-name {
+        color: var(--primary-color);
+    }
+    &-name {
+        transition: .3s ease;
+        text-transform: capitalize;
+        font-size: var(--normal-text);
+    }
+}

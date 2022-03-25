@@ -1,0 +1,23 @@
+.search {
+    display: grid;
+    grid-template-columns: 1fr .22fr .1fr;
+    gap: 0 20px;
+
+    &-display {
+        display: flex;
+        align-items: center;
+        gap: 0 10px;
+
+        i {
+            font-size:var(--bigger-text);
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 468px) {
+    .search {
+        grid-template-columns: 1fr;
+        gap: 10px 0px;
+    } 
+}

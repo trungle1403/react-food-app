@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import {useState} from 'react'
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Home from './pages/Home/Home'
+import Order from './pages/Order/Order'
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 function App() {
+  const [data, setData] = useState([])
+  const handleGetData = (value) => {
+    setData(value)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Header />
+        <Routes>
+          <Route path='/' exact element={<Home />} />
+          <Route path='/order' element={<Order onDataSave={handleGetData} />} />
+          <Route path='/product/:id' element={<ProductDetail dataSave={data} />} />
+        </Routes>
+    </Router>
   );
 }
 
